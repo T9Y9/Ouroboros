@@ -9,7 +9,7 @@ module Program =
             { Num = 2; Title = "Walnut" }
             { Num = 3; Title = "Warmup" }
             { Num = 4; Title = "Factory" }
-            { Num = 5; Title = "WIP" }
+            { Num = 5; Title = "Untitled" }
         |]
     
     let mutable menu = {
