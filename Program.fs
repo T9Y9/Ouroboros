@@ -9,7 +9,7 @@ module Program =
             { Num = 2; Title = "Walnut" }
             { Num = 3; Title = "Warmup" }
             { Num = 4; Title = "Factory" }
-            { Num = 5; Title = "Untitled" }
+            { Num = 5; Title = "Roundabout" }
         |]
     
     let mutable menu = {
@@ -19,18 +19,18 @@ module Program =
         MenuLevels = menuLevels
     }
     
-    let mutable current = { State = Menu; Scale = 1f; X = 0f; Y = 0f; W = 0; H = 0 }
+    let mutable current = { State = Menu; Scale = 1f; X = 0f; Y = 0f }
     
     [<EntryPoint>]
     let main _ =
         let scale, width, height = Render.newWindow ()
-        current <- { current with Scale = scale; W = width; H = height }
+        current <- { current with Scale = scale }
         while not (Raylib.WindowShouldClose() = CBool(true)) do
             if Raylib.IsWindowResized() = CBool(true) then
                 let width = Raylib.GetScreenWidth()
                 let height = Raylib.GetScreenHeight()
                 let size = min (width * 3 / 4) height
-                current <- { current with Scale = float32 size / 1200f; X = float32 (width / 2) - float32 size * 4f / 3f / 2f; Y = float32 (height / 2 - size / 2); W = width; H = height }
+                current <- { current with Scale = float32 size / 1200f; X = float32 (width / 2) - float32 size * 4f / 3f / 2f; Y = float32 (height / 2 - size / 2) }
             match current.State with
             | Menu ->
                 let n = menu |> State.handleSelect current

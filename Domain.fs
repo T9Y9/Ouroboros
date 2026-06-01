@@ -93,6 +93,4 @@ type Current = {
     Scale: float32
     X: float32
     Y: float32
-    W: int
-    H: int
 }
