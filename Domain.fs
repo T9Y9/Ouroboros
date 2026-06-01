@@ -20,7 +20,7 @@ module Vel =
 
 module VelS =
     let create (pivot: Dir) (vel1: Vel) (vel2: Vel) (vel3: Vel) (vel4: Vel) =
-        Map.ofList [(pivot, vel1); ((Dir.CW pivot), vel2); ((Dir.opp pivot), vel3); ((Dir.CCW pivot), vel4)]
+        Map.ofList [pivot, vel1; Dir.CW pivot, vel2; Dir.opp pivot, vel3; Dir.CCW pivot, vel4]
     let createOne vel =
         create N vel vel vel vel
     let zero = createOne Zero

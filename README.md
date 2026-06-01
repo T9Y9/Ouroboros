@@ -42,3 +42,22 @@ Make a single ouroboros to win a level. For details, see `Ou (revised).pdf`.
 ## Changes after the Proposal
 
 Three minor changes were made. For details, see `Ou (revised).pdf`.
+
+## LLM Usage
+
+I asked an LLM to suggest appropriate project structures (Domain, Engine, etc.) and to proofread `Ou.pdf`, `Ou (revised).pdf` and `README.md`.
+
+- `Domain.fs`: Lines 82-87
+- `Render.fs`: Lines 15-21, 44-54, 106-157
+- `State.fs`: Lines 17-45
+
+The LLM was used to generate the above lines of code, which are mostly related to menu rendering. LLM did a good job generating the correct code. I defined new types such as `MenuLevel` and `current`, and modified the code accordingly. Also, I manually added offsets and scales to them when I tried to make the screen resizable.
+
+I tried to use the LLM to generate other parts of the code, but it struggled to understand the game mechanics, producing mostly nonsense code. However, I adopted a small fraction of them with some modification into my project, as listed below.
+
+- `Domain.fs`: Lines 5, 11
+- `Engine.fs`: Lines 8-9
+- `Render.fs`: Lines 28-30
+- `Program.fs`: Lines 16-18
+
+The rest of the code was written by me.

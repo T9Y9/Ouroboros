@@ -23,7 +23,7 @@ module Program =
     
     [<EntryPoint>]
     let main _ =
-        let scale, width, height = Render.newWindow ()
+        let scale = Render.newWindow ()
         current <- { current with Scale = scale }
         while not (Raylib.WindowShouldClose() = CBool(true)) do
             if Raylib.IsWindowResized() = CBool(true) then

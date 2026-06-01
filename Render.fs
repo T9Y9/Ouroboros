@@ -39,7 +39,7 @@ module Render =
         Raylib.SetWindowPosition(width / 2 - w / 2, height / 2 - h / 2)
         Raylib.SetTargetFPS(60)
         
-        scale, w, h
+        scale
     
     let drawTextCentered (text: string) (cx: int) (y: int) (size: int) (color: Color) s xOff yOff =
         let w = Raylib.MeasureText(text, int (float32 size * s))
