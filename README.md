@@ -15,7 +15,7 @@ The ultimate goal of each level is to form a single [ouroboros](https://en.wikip
 
 ### Alternative Way
 
-- Ensure you have [.NET SDK 10.0](https://dotnet.microsoft.com/en-us/download) installed on your computer.
+- Ensure you have [.NET SDK 10.0](https://learn.microsoft.com/en-us/dotnet/core/install/) or above installed on your computer.
 - Clone or download this repository.
 - Navigate to the project directory.
 - Use `dotnet run` to run the project.
