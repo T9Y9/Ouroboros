@@ -11,9 +11,9 @@ module State =
         elif isPressed KeyboardKey.A || isPressed KeyboardKey.Left then Dir W
         else Zero
     
-    let handleSelect (state: CurrentState) (menu: Menu) =
+    let handleSelect (c: Current) (menu: Menu) =
         let mutable menu = menu
-        let mutable state = state
+        let mutable state = c.State
         let cols     = menu.ColNum
         // let rows     = (menu.MenuLevels.Length + cols - 1) / cols
         let maxIdx   = menu.MenuLevels.Length - 1
@@ -45,21 +45,21 @@ module State =
             isPressed KeyboardKey.Space then
             state <- Play (LevelSt.create menu.MenuLevels[menu.SelectedIndex].Num)
         
-        Render.drawMenu menu
+        Render.drawMenu menu c.Scale c.X c.Y
         menu, state
     
-    let handlePlay (state: CurrentState) (lvl: Level) =
+    let handlePlay (c: Current) (lvl: Level) =
         let mutable lvl = lvl
-        let mutable state = state
+        let mutable state = c.State
         if isPressed KeyboardKey.R then
             lvl <- lvl |> LevelSt.firstNodeStateMap |> LevelSt.setWorkspace
         if isPressed KeyboardKey.Q then
             state <- Menu
         if isPressed KeyboardKey.Z then
             lvl <- lvl |> LevelSt.prevNodeStateMap |> LevelSt.setWorkspace
-        let interpolate (f, s, t, n) phase lvl =
-            for t in f .. s .. t do
-                lvl |> Render.drawLevel (float32 t / float32 n) phase
+        let interpolate (f, step, t, n) phase lvl =
+            for t in f .. step .. t do
+                lvl |> Render.drawLevel (float32 t / float32 n) phase c.Scale c.X c.Y
             lvl
         match inputVel () with
         | Dir inputDir ->
@@ -105,6 +105,6 @@ module State =
             lvl <- lvl |> LevelSt.checkWin
         | Zero ->
             lvl <- lvl |> LevelSt.setAttemptVelToZero
-            lvl |> Render.drawLevel 0f GlowTransfer
+            lvl |> Render.drawLevel 0f GlowTransfer c.Scale c.X c.Y
         
         lvl, state

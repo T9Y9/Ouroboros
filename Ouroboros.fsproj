@@ -3,14 +3,19 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="src/Domain.fs" />
-    <Compile Include="src/Engine.fs" />
-    <Compile Include="src/Render.fs" />
-    <Compile Include="src/State.fs" />
-    <Compile Include="src/Program.fs" />
+    <Compile Include="Domain.fs" />
+    <Compile Include="Levels.fs" />
+    <Compile Include="Engine.fs" />
+    <Compile Include="Render.fs" />
+    <Compile Include="State.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>

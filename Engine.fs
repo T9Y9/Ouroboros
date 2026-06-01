@@ -5,8 +5,8 @@ open System.IO
 
 module LevelSt =
     let create num =
-        let linesOfMap = File.ReadAllLines $"Levels/{num}-map.txt"
-        let linesOfState = File.ReadAllLines $"Levels/{num}-state.txt"
+        let linesOfMap = Levels.levelList[2 * (num - 1)]
+        let linesOfState = Levels.levelList[2 * (num - 1) + 1]
         let height = linesOfMap.Length
         let width = linesOfMap[0].Length
         let tiles = Array2D.create width height Empty
@@ -309,7 +309,7 @@ module LevelSt =
         match l.PastNodeStateMaps with
         | old :: past ->
             let lastNodeStateMap = l.PastNodeStateMaps |> List.last
-            { l with NodeStateMap = lastNodeStateMap; PastNodeStateMaps = [lastNodeStateMap] }
+            { l with NodeStateMap = lastNodeStateMap; PastNodeStateMaps = [] }
         | _ -> l
     
     let checkWin l =

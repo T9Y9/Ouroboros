@@ -87,3 +87,12 @@ type Menu = {
 }
 
 type CurrentState = Menu | Play of Level
+
+type Current = {
+    State: CurrentState
+    Scale: float32
+    X: float32
+    Y: float32
+    W: int
+    H: int
+}
