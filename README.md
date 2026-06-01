@@ -4,6 +4,8 @@
 
 Ouroboros is a [Sokoban](https://en.wikipedia.org/wiki/Sokoban) + [Snake](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) style puzzle game implemented in F\# using [raylib](https://github.com/raysan5/raylib) and [raylib-cs](https://github.com/raylib-cs/raylib-cs).
 
+![Demo](Demo.gif)
+
 The ultimate goal of each level is to form a single [ouroboros](https://en.wikipedia.org/wiki/Ouroboros).
 
 ## Download and Play
