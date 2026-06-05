@@ -50,7 +50,7 @@ Three minor changes were made. For details, see `Ou (revised).pdf`.
 I asked an LLM to suggest appropriate project structures (Domain, Engine, etc.) and to proofread `Ou.pdf`, `Ou (revised).pdf` and `README.md`.
 
 - `Domain.fs`: Lines 82-87
-- `Render.fs`: Lines 15-21, 44-54, 106-157
+- `Render.fs`: Lines 15-21, 44-54, 159-193
 - `State.fs`: Lines 17-45
 
 The LLM was used to generate the above lines of code, which are mostly related to menu rendering. LLM did a good job generating the correct code. I defined new types such as `MenuLevel` and `current`, and modified the code accordingly. Also, I manually added offsets and scales to them when I tried to make the screen resizable.
